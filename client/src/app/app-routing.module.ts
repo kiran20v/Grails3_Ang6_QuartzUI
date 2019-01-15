@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import {RouterModule,Routes} from '@angular/router';
 import {IndexComponent} from "./index/index.component";
 import { CustomerComponent } from './customer/customer.component';
+import { QuartzJobsComponent } from './quartz-jobs/quartz-jobs.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'index', pathMatch: 'full'},
@@ -15,6 +16,12 @@ const routes: Routes = [
   { path: '',
     redirectTo: '/customers',
     pathMatch: 'full'
+  },
+
+  {
+    path: 'quartzJobs',
+    component: QuartzJobsComponent,
+    data: { title: 'Quartz Jobs' }
   }
 ];
 

@@ -11,7 +11,7 @@ export class QuartzJobsComponent implements OnInit {
   constructor(private http: HttpClient) { }
   quartzJobs : any;
   ngOnInit() {
-    this.http.get('http://localhost:8080/customer').subscribe(data => {
+    this.http.get('http://localhost:8080/quartzJobs').subscribe(data => {
       this.quartzJobs = data;
     });
   }

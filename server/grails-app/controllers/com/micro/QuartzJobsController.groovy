@@ -10,13 +10,13 @@ import grails.converters.JSON
  *
  */
 // @Secured(['ROLE_USER'])
-class QuartzController {
+class QuartzJobsController {
 	
 	
 		QuartzService quartzService
 		static allowedMethods = [scheduleQuartzJob: "PUT"
 								 ,runQuartzJob:"PUT"
-								 ,getAllScheduledJobs:"GET"
+								 ,index:"GET"
 								 ,getJobsStatus:"GET"
 								 ,unscheduleQuartzJob:"POST"
 								 ,getJobHistory:"POST"
@@ -43,7 +43,7 @@ class QuartzController {
 			render jobList as JSON
 		}
 		
-		def getAllScheduledJobs() {
+		def index() {
 			render quartzService.getAllScheduledJobList() as JSON
 		}
 	

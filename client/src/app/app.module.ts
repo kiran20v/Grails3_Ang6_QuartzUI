@@ -17,8 +17,8 @@ import { QuartzJobsComponent } from './quartz-jobs/quartz-jobs.component';
     AppComponent,
     NavComponent,
     IndexComponent,
-    CustomerComponent
-    // QuartzJobsComponent
+    CustomerComponent,
+    QuartzJobsComponent
   ],
   imports: [
     BrowserModule,

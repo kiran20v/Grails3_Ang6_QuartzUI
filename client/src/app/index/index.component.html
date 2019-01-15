@@ -20,8 +20,8 @@
       <ul>
         <li *ngFor="let c of controllers">
           <div [ngSwitch]="hasRoute(c.logicalPropertyName)">
-            
-            <a *ngSwitchCase="false" [href]="'#/' + c.logicalPropertyName ">>{{c.logicalPropertyName}}</a>
+            <a *ngSwitchCase="true" [routerLink]="'/' + c.logicalPropertyName">{{c.logicalPropertyName}}</a>
+            <a *ngSwitchCase="false" [href]="'#/' + c.logicalPropertyName">{{c.logicalPropertyName}}</a>
             <>
             <a *ngSwitchCase="false" href="#/customers-edit">Edit</a>
           </div>

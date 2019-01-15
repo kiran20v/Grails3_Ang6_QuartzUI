@@ -1,3 +1,27 @@
-<p>
-  quartz-jobs works!
-</p>
+<div class="container">
+  <h1>Quartz schedule</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Job Name</th>
+        <th>Name</th>
+        <th>Trigger </th>
+        <th>Status</th>
+        <th>Next Fire Time</th>
+        <th>isPaused </th>
+        <th>More</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let job of quartzJobs">
+        <td>{{ job.jobName }}</td>
+        <td>{{ job._title }}</td>
+        <td>{{ job.cronTrigger }}</td>
+        <td>{{ job.status }}</td>
+        <td>{{ job.nextFireTime }}</td>
+        <td>{{ job.isPaused }}</td>
+        <td><a href="#/quartzJobs/show/{{job.id}}">Show Detail</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
