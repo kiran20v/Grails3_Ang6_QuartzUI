@@ -1,7 +1,7 @@
 #!/bin/sh
 #git config --global user.name kiran20v
 #git config --global user.email kiran20v@gmail.com
-#git init python_projects
+git init Grails3_Ang6_QuartzUI
 git add *
 echo "Commit message:"
 read commit_msg
