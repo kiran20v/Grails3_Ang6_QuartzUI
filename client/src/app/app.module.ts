@@ -10,6 +10,7 @@ import { NavService } from './nav/nav.service';
 import { AppRoutingModule } from "./app-routing.module";
 import { HttpClientModule } from "@angular/common/http";
 import { CustomerComponent } from './customer/customer.component';
+import { QuartzJobsComponent } from './quartz-jobs/quartz-jobs.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { CustomerComponent } from './customer/customer.component';
     NavComponent,
     IndexComponent,
     CustomerComponent
+    // QuartzJobsComponent
   ],
   imports: [
     BrowserModule,

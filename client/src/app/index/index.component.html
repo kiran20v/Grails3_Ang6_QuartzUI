@@ -16,22 +16,23 @@
     </p>
 
     <div id="controllers" role="navigation">
-      <h2>Available Controllers:</h2>
+      <h2>Angular:</h2>
+      <ul>
+        <li *ngFor="let c of controllers">
+          <div [ngSwitch]="hasRoute(c.logicalPropertyName)">
+            
+            <a *ngSwitchCase="false" [href]="'#/' + c.logicalPropertyName ">>{{c.logicalPropertyName}}</a>
+            <>
+            <a *ngSwitchCase="false" href="#/customers-edit">Edit</a>
+          </div>
+        </li>
+      </ul>
+
+       <h2>Available Controllers :</h2>
       <ul>
         <li *ngFor="let c of controllers">
           <div [ngSwitch]="hasRoute(c.logicalPropertyName)">
             <a *ngSwitchCase="true" [routerLink]="'/' + c.logicalPropertyName">{{c.name}}</a>
-            <a *ngSwitchCase="false" [href]="serverUrl + c.logicalPropertyName">{{c.name}}</a>
-          </div>
-        </li>
-      </ul>
-    </div>
-    <div id="controllers" role="navigation">
-      <h2>Available Angular routes:</h2>
-      <ul>
-        <li *ngFor="let c of controllers">
-          <div [ngSwitch]="hasRoute(c.logicalPropertyName)">
-            <a *ngSwitchCase="true" [`]="'/' + c.logicalPropertyName">{{c.name}}</a>
             <a *ngSwitchCase="false" [href]="serverUrl + c.logicalPropertyName">{{c.name}}</a>
           </div>
         </li>
