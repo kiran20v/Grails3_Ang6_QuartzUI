@@ -1,0 +1,19 @@
+<div class="container">
+  <h1>Customer List</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cust of customers">
+        <td>{{ cust.name }}</td>
+        <td>{{ cust.address }}</td>
+        <td><a href="/show/{{cust.id}}">Show Detail</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
