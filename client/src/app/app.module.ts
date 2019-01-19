@@ -11,6 +11,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { HttpClientModule } from "@angular/common/http";
 import { CustomerComponent } from './customer/customer.component';
 import { QuartzJobsComponent } from './quartz-jobs/quartz-jobs.component';
+import { QuartzJobsCreateComponent } from './quartz-jobs-create/quartz-jobs-create.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { QuartzJobsComponent } from './quartz-jobs/quartz-jobs.component';
     NavComponent,
     IndexComponent,
     CustomerComponent,
-    QuartzJobsComponent
+    QuartzJobsComponent,
+    QuartzJobsCreateComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
 package com.micro
 
-class  extends QuartzHistory {
+class QuartzHistory {
 
 	String jobTitle
 	String jobName
@@ -8,7 +8,7 @@ class  extends QuartzHistory {
 	Date endDate
 	String cronExpr
 	String status
-	Integer execTime
+	Integer execTimear
 	Integer itemCount
 	Integer errorCount
 	String userId

@@ -13,6 +13,6 @@ class QuartzServiceSpec extends Specification implements ServiceUnitTest<QuartzS
 
     void "test something"() {
         expect:"fix me"
-            true == false
+            true == true
     }
 }

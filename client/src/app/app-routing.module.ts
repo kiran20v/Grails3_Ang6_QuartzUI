@@ -3,6 +3,7 @@ import {RouterModule,Routes} from '@angular/router';
 import {IndexComponent} from "./index/index.component";
 import { CustomerComponent } from './customer/customer.component';
 import { QuartzJobsComponent } from './quartz-jobs/quartz-jobs.component';
+import { QuartzJobsCreateComponent } from './quartz-jobs-create/quartz-jobs-create.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'index', pathMatch: 'full'},
@@ -22,6 +23,12 @@ const routes: Routes = [
     path: 'quartzJobs',
     component: QuartzJobsComponent,
     data: { title: 'Quartz Jobs' }
+  },
+
+  {
+    path: 'quartzJobs-create',
+    component: QuartzJobsCreateComponent,
+    data: { title: 'Quartz Jobs create' }
   }
 ];
 

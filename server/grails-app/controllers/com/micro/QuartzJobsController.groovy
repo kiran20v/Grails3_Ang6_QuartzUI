@@ -1,7 +1,7 @@
 package com.micro
 
-import grails.gorm.transactions.Transactional
 import grails.converters.JSON
+import grails.gorm.transactions.Transactional
 // import grails.plugin.springsecurity.annotation.Secured
 // import grails.plugin.springsecurity.SpringSecurityUtils
 
@@ -14,7 +14,7 @@ class QuartzJobsController {
 	
 	
 		QuartzService quartzService
-		static allowedMethods = [scheduleQuartzJob: "PUT"
+		static allowedMethods = [save: "POST"
 								 ,runQuartzJob:"PUT"
 								 ,index:"GET"
 								 ,getJobsStatus:"GET"
@@ -27,7 +27,7 @@ class QuartzJobsController {
 								 ,getSchedulerStatus:"GET"]
 		def messageSource
 		
-		def quartzJobFactory
+		def quartzJobMapFactory
 		
 		def getJobsStatus(){
 			def jobs = quartzService.getAllScheduledJobList()
@@ -54,14 +54,16 @@ class QuartzJobsController {
 		}
 	
 		@Transactional
-		def scheduleQuartzJob() {
+		def save() {
 			def quartzParams = request.JSON
+			log.info "Request params from Quartz create: {}", quartzParams
 			def qRequest = new QRequest()
 			bindData(qRequest,quartzParams)
 			if(qRequest.validate()) {
-				log.info "DMQ-Info: Scheulde Quartz Job - params : "+quartzParams
+				log.info "DMQ-Info: Scheulde Quartz Job - params : {}", quartzParams
 				try {
-					quartzJobFactory.get(quartzParams.title)?.schedule(quartzParams.cronTrigger, quartzParams)
+					quartzJobMapFactory.get(quartzParams.title)?.triggerNow(quartzParams)
+					// quartzJobMapFactory.get(quartzParams.title)?.schedule(quartzParams.cronTrigger, quartzParams)
 				} catch (Exception e) {
 					log.error "DMQ-Error: Error occured at Scheulde Quartz job : ", e
 				}
@@ -88,7 +90,7 @@ class QuartzJobsController {
 			if(qRequest.validate()) {
 				log.info "DMQ-Info: Run Quartz Job params : "+quartzParams
 				try {
-					quartzJobFactory.get(quartzParams.title)?.triggerNow(quartzParams)
+					quartzJobMapFactory.get(quartzParams.title)?.triggerNow(quartzParams)
 				} catch (Exception e) {
 					log.error "DMQ-Error: Error occured at Run Quartz Job : ", e
 				}

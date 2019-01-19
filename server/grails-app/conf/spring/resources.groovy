@@ -5,8 +5,8 @@ beans = {
 	
 	quartzJobMapFactory(org.springframework.beans.factory.config.MapFactoryBean) {
         sourceMap = [
-                  "job1":MyJob.class, 
-                  "job2":MyJob.class 
+                  "myJob":MyJob.class, 
+                  "myJob2":MyJob.class 
                 ] 
      }
 }

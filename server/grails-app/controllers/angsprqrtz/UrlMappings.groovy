@@ -4,11 +4,11 @@ class UrlMappings {
 
     static mappings = {
 
-        "/$controller/$action?/$id?(.$format)?"{
-            constraints {
-                // apply constraints here
-            }
-        }
+        // "/$controller/$action?/$id?(.$format)?"{
+        //     constraints {
+        //         // apply constraints here
+        //     }
+        // }
         
         delete "/$controller/$id(.$format)?"(action:"delete")
         get "/$controller(.$format)?"(action:"index")
