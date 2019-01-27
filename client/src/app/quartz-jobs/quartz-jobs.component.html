@@ -1,10 +1,9 @@
 <div class="container">
-  <h1>Create Quartz Job
+  <h1>Quartz schedule
     <a [routerLink]="['/quartzJobs-create']" class="btn btn-default btn-lg">
-       (Add Customer)
+       (Create Job)
     </a>
   </h1>
-  <h1>Quartz schedule</h1>
   <table class="table">
     <thead>
       <tr>
@@ -25,7 +24,7 @@
         <td>{{ job.status }}</td>
         <td>{{ job.nextFireTime }}</td>
         <td>{{ job.isPaused }}</td>
-        <td><a href="#/quartzJobs/show/{{job.id}}">Show Detail</a></td>
+        <td><button (click)="deleteQuartzJob(job)" class="btn btn-info">Delete</button></td>
       </tr>
     </tbody>
   </table>

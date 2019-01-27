@@ -76,7 +76,7 @@ class QuartzService {
 	 */
 	@Transactional
 	def unscheduleQuartzJob(quartzParams) {
-		log.info"CDHInfo: QuartzService.unscheduleQuartzJob - Input Request : "+quartzParams.jobTriggerName
+		log.info"QuartzInfo: QuartzService.unscheduleQuartzJob - Input Request : "+quartzParams.jobTriggerName
 		try {
 
 			List<TriggerDescriptor> triggers = getAllTriggers()

@@ -1,11 +1,21 @@
 package com.micro
 
-class MyJob {
-    static triggers = {
-      simple repeatInterval: 5000l // execute job once in 5 seconds
+public class MyJob {
+
+    def execute(def context) {
+        log.info "Started Running my job :"+context
+        sleepInSeconds(10)
+        log.info "Ended Running my job :"+context
     }
 
-    def execute() {
-        // execute job
+
+    def sleepInSeconds(def sec) {
+        try {
+            Thread.sleep(sec*1000);
+
+        } catch(e) {
+            log.error "Exception while thread sleep: ",e
+            throw e;
+        }
     }
 }

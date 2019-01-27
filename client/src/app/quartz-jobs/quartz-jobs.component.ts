@@ -16,4 +16,13 @@ export class QuartzJobsComponent implements OnInit {
     });
   }
 
+  deleteQuartzJob(job) {
+    var deleteJob = JSON.stringify({job})
+    console.log("Delete job : ",this.quartzJobs[0]);
+    this.http.delete('http://localhost:8080/quartzJobs/'+job.jobTriggerName).subscribe(data => {
+      console.log("Deleted job: ",data);
+      this.quartzJobs.pop(1);
+    });
+  }
+
 }

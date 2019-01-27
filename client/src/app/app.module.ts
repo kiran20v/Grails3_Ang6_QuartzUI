@@ -12,6 +12,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { CustomerComponent } from './customer/customer.component';
 import { QuartzJobsComponent } from './quartz-jobs/quartz-jobs.component';
 import { QuartzJobsCreateComponent } from './quartz-jobs-create/quartz-jobs-create.component';
+import { QuartzJobsEditComponent } from './quartz-jobs-edit/quartz-jobs-edit.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { QuartzJobsCreateComponent } from './quartz-jobs-create/quartz-jobs-crea
     IndexComponent,
     CustomerComponent,
     QuartzJobsComponent,
-    QuartzJobsCreateComponent
+    QuartzJobsCreateComponent,
+    QuartzJobsEditComponent
   ],
   imports: [
     BrowserModule,

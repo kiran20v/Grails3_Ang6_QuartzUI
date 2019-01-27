@@ -16,15 +16,22 @@ export class QuartzJobsCreateComponent implements OnInit {
     
   }
 
-  saveQuartzJob() {
+  scheduleQuartzJob() {
     this.quartzJob.isRunNow =  this.quartzJob.cronTrigger ? "schedule" : "runNow";
-    
+    console.log ("Quartz params: ", this.quartzJob);
     this.http.post('http://localhost:8080/quartzJobs', this.quartzJob)
       .subscribe (result => {
-        let id = result['id'];
-        this.router.navigate(['/quartz-jobs/']);
-      }, (err) => {
-          console.log(err);
+        console.log("Result: ",result);
+        // let id = result['id'];
+        this.router.navigate(['/quartzJobs']);
+
+      }, (errors) => {
+          console.log("Errors: ", errors);
       });
+  }
+
+  runNowQuartzJob() {
+    this.quartzJob.cronTrigger = null;
+    this.scheduleQuartzJob();
   }
 }

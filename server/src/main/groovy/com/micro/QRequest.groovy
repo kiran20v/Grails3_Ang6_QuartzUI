@@ -11,7 +11,7 @@ public class QRequest implements Validateable {
 	// Integer maxJobRunTime
 	String _title
 	String jobName
-	// String comment
+	String comment
 	String cronTrigger
 	String title
 	String isRunNow
@@ -30,7 +30,7 @@ public class QRequest implements Validateable {
 	static constraints = {
 		_title blank: false, nullable: false
 		jobName blank: false, nullable: false
-		title blank: false, nullable: false
+		title blank: true, nullable: true
 		comment blank: true, nullable: true
 		// minDaysRevalidate min: 0, max:999,nullable: true
 		// maxRowsPerQuery min:1,max:1000,nullable: true

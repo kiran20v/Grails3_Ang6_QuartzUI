@@ -18,7 +18,7 @@ class QuartzJobsController {
 								 ,runQuartzJob:"PUT"
 								 ,index:"GET"
 								 ,getJobsStatus:"GET"
-								 ,unscheduleQuartzJob:"POST"
+								 ,delete:"DELETE"
 								 ,getJobHistory:"POST"
 								 ,pauseAllJobs:"GET"
 								 ,resumeAllJobs:"GET"
@@ -48,26 +48,30 @@ class QuartzJobsController {
 		}
 	
 	
-		def unscheduleQuartzJob() {
-			def quartzParams = request.JSON
+		def delete() {
+			def quartzParams = ["jobTriggerName":params.id]
 			render quartzService.unscheduleQuartzJob(quartzParams) as JSON
 		}
 	
 		@Transactional
 		def save() {
 			def quartzParams = request.JSON
-			log.info "Request params from Quartz create: {}", quartzParams
+			log.error "Request params from Quartz create: {}"+ quartzParams
 			def qRequest = new QRequest()
 			bindData(qRequest,quartzParams)
 			if(qRequest.validate()) {
 				log.info "DMQ-Info: Scheulde Quartz Job - params : {}", quartzParams
 				try {
-					quartzJobMapFactory.get(quartzParams.title)?.triggerNow(quartzParams)
-					// quartzJobMapFactory.get(quartzParams.title)?.schedule(quartzParams.cronTrigger, quartzParams)
+					def jobClass = quartzJobMapFactory.get(quartzParams.jobName)
+					if(quartzParams.isRunNow == "runNow") {
+						jobClass?.triggerNow(quartzParams)
+					} else {
+						jobClass?.schedule(quartzParams.cronTrigger, quartzParams)
+					}
 				} catch (Exception e) {
 					log.error "DMQ-Error: Error occured at Scheulde Quartz job : ", e
 				}
-				render "Success"
+				render quartzParams
 			}
 			else {
 				def responseMap = [:]
