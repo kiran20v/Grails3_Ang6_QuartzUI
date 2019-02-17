@@ -8,12 +8,26 @@ import { HttpClient } from '@angular/common/http';
 })
 export class QuartzJobsComponent implements OnInit {
 
-  constructor(private http: HttpClient) { }
+  // showView : any;
   quartzJobs : any;
+  quartzEditJobs : any;
+
+  constructor(private http: HttpClient) { }
+
   ngOnInit() {
     this.http.get('http://localhost:8080/quartzJobs').subscribe(data => {
       this.quartzJobs = data;
     });
+  }
+
+  show(view) {
+
+    console.log("Show view : "+view);
+
+    // if(view) {
+    //   showView = true;
+    // }
+
   }
 
   deleteQuartzJob(job) {

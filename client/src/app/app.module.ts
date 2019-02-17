@@ -13,6 +13,7 @@ import { CustomerComponent } from './customer/customer.component';
 import { QuartzJobsComponent } from './quartz-jobs/quartz-jobs.component';
 import { QuartzJobsCreateComponent } from './quartz-jobs-create/quartz-jobs-create.component';
 import { QuartzJobsEditComponent } from './quartz-jobs-edit/quartz-jobs-edit.component';
+import { QuartzJobsListEditComponent } from './quartz-jobs-list-edit/quartz-jobs-list-edit.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { QuartzJobsEditComponent } from './quartz-jobs-edit/quartz-jobs-edit.com
     CustomerComponent,
     QuartzJobsComponent,
     QuartzJobsCreateComponent,
-    QuartzJobsEditComponent
+    QuartzJobsEditComponent,
+    QuartzJobsListEditComponent
   ],
   imports: [
     BrowserModule,

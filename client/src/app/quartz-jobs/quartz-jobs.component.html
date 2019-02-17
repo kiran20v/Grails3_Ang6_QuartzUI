@@ -1,8 +1,13 @@
 <div class="container">
+
   <h1>Quartz schedule
-    <a [routerLink]="['/quartzJobs-create']" class="btn btn-default btn-lg">
-       (Create Job)
+
+    <a  (click)="show('create')" class="btn btn-default btn-lg">
+      (Create Job)
     </a>
+<!--    <a [routerLink]="['/quartzJobs-create']" class="btn btn-default btn-lg">
+       (Create Job)
+    </a>-->
   </h1>
   <table class="table">
     <thead>
